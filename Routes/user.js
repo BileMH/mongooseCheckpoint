@@ -1,17 +1,18 @@
-const express=require("express")
-const router = require("./Contact")
-const { registervalidator, loginvalidator} = require("../middleware/validator")
-const {register, login}= require("../controlers/user")
-const jsAuth = require("../middleware/jsAuth")
+const express = require('express');
+const { register, login, updateUserPassword } = require('../controllers/user');
+const { registerValidator, validation, loginValidator } = require('../middlewares/Validator');
+
+const router = express.Router()
 
 
-//register
+router.post("/register" ,registerValidator() , validation, register )
+
+router.post("/login" , loginValidator(),validation ,login)
 
 
-router.post('/register' ,registervalidator(),register)
-//login
-router.post('/login', loginvalidator(),login)
-//current
-router.get("./current",jsAuth,(req,res)=>{
-    res.send(req.user)
+router.get ("/current" , jsAuth , (req,res)=>{
+    res.send (req,user)
 })
+
+
+module.exports = router

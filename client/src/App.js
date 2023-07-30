@@ -7,7 +7,16 @@ import NavBar from './Components/NavBar/NavBar';
 import Home from './Pages/Home/Home';
 import { Error } from 'mongoose';
 import Add from './Components/Add/Add';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { current } from './Js/Actions/user';
 function App() {
+  const dispatch = useDispatch();
+  useEffect(() => {
+    if (localStorage.getItem("token")) {
+      dispatch ( current())
+    }
+  }, [dispatch])
   return (
     <div className="App">
      <NavBar/>

@@ -1,20 +1,39 @@
-const express= require ("express")
-const app = express()
-app.use(express.json())
+const express = require('express');
 
-// require env et config 
-require("dotenv").config();
-// connect db
-const connectDb=require("./Config/ConnectDB")
-connectDb();
-//create port
-const PORT=process.env.PORT
+// 2 create istance
 
-//routes
-app.use('/api/Contact' , require("./Routes/Contact"))
-app.use("api/user",require("./Routes/user"))
-// la création du serveur
-app.listen(PORT,error=>{
-    error ? console.error(`fail to connect ,${error}`) :
-    console.log(`server is running on port ${PORT}`)
+const app = express();
+
+// 4 require dotenv
+
+app.use(express.json()) ;
+
+require("dotenv").config() ;
+
+
+//6 connect db
+
+const connectDB = require("./config/connectDB");
+connectDB() ;
+
+// 7 create routes
+
+app.use("/api/contact" , require("./Routes/Contact") )
+
+app.use("/api/user",require("./Routes/user"))
+
+
+
+
+
+// 3 create port
+
+const PORT = process.env.PORT
+
+
+//5 create server
+
+app.listen(PORT , error=> {
+    error ? console.error(`fail to connect , ${error}`) : 
+    console.log(`Server is running at ${PORT}`)
 })
