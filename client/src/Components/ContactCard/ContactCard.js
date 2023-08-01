@@ -2,7 +2,7 @@ import React from 'react'
 import { Button, Card } from "react-bootstrap"
 import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
-import { deletecontact } from '../../Js/Actions/contact'
+import { deleteContact } from '../../Js/Actions/contact'
 
 const ContactCard = ({contact}) => {
   const dispatch = useDispatch()
@@ -16,7 +16,7 @@ const ContactCard = ({contact}) => {
     <Card.Text>{contact.email}</Card.Text>
     <Card.Text>{contact.phone}</Card.Text>
     <Button variant="success" onClick={()=> navigate (`/edit/${contact._id}`)}>Edit</Button>
-    <Button variant="danger" onClick={()=>dispatch(deletecontact(contact._id))}>Delete</Button>
+    <Button variant="danger" onClick={()=>dispatch(deleteContact(contact._id))}>Delete</Button>
   </Card.Body>
 </Card>
         

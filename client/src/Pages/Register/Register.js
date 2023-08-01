@@ -1,4 +1,4 @@
-import e from 'express';
+
 import React, { useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { Link, useNavigate } from 'react-router-dom';
@@ -7,7 +7,6 @@ import { Button, Form } from 'react-bootstrap';
 
 const Register = () => {
     const [newUser, setNewUser]= useState({})
-    const errors = useSelector((state) => state.userReducer.errors);
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

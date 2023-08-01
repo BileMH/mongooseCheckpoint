@@ -2,19 +2,19 @@ const express = require('express');
 
 // 2 create istance
 
-const app = express();
+const app = express()
 
 // 4 require dotenv
 
-app.use(express.json()) ;
+app.use(express.json()) 
 
 require("dotenv").config() ;
 
 
 //6 connect db
 
-const connectDB = require("./config/connectDB");
-connectDB() ;
+const connectDb = require("./config/ConnectDB");
+connectDb() ;
 
 // 7 create routes
 

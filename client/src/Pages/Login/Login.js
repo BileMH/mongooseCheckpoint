@@ -1,14 +1,12 @@
 import React, {useState} from "react";
 import { Button, Form } from "react-bootstrap";
-import {useDispatch, useSelector} from 'react-redux';
+import {useDispatch} from 'react-redux';
 import { useNavigate } from "react-router-dom";
 import { login } from "../../Js/Actions/user";
 
 
 const Login = () => {
     const [user, setUser] = useState({})
-    const errors = useSelector((state) => state.userReducer.errors);
-    // const jsAuth = useSelector((state) => state.userReducer.jsAuth);
     const dispatch = useDispatch()
     const navigate = useNavigate()
 

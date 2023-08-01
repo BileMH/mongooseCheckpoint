@@ -2,7 +2,7 @@ const {check,validationResult}=require("express-validator");
 
 
 
-exports.registervalidation=()=>[
+exports.registerValidator=()=>[
     check("name","veuillez inseror votre name").not().isEmpty(),
     check("email","veuillez verifer votre mail").isEmail(),
     check("password","password (min:6)").isLength({min:7}),
