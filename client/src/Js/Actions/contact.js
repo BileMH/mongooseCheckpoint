@@ -9,6 +9,7 @@ export const getContacts = () => async (dispatch) => {
     dispatch({ type: GET_CONTACTS, payload: result.data });
   } catch (error) {
     dispatch({ type: FAIL_CONTACTS, payload: error.response });
+
   }
 };
 

@@ -13,7 +13,7 @@ import {
         user : null,
         loadUser:false,
         errors : null,
-        isAuth : false
+        jsAuth : false
     }
 
 
@@ -23,12 +23,12 @@ import {
                 return{...state,loadUser:true}
             case REGISTER_USER:
                 localStorage.setItem("token",payload.token)
-                return{...state,loadUser:false,user:payload.user,isAuth:true}
+                return{...state,loadUser:false,user:payload.user,jsAuth:true}
             case CURRENT_USER:
-                return {...state,user:payload,loadUser:false,isAuth:true}
+                return {...state,user:payload,loadUser:false,jsAuth:true}
             case LOGOUT_USER:
                 localStorage.removeItem("token");
-                return{user:null,loadUser:false,errors:null,isAuth:false}
+                return{user:null,loadUser:false,errors:null,jsAuth:false}
             case FAIL_USER :
                 return{...state,loadUser:false,errors:payload}
             case CLEAR_ERRORS:

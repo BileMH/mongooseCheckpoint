@@ -13,10 +13,9 @@ const Add = () => {
   const handleChange = (e) => {
     setNewContact({ ...newContact, [e.target.name]: e.target.value });
   };
-
   const handleAdd = () => {
     dispatch(addContact(newContact));
-    navigate('/contactlist');
+    navigate('/ContactList');
   };
 
   return (

@@ -30,8 +30,8 @@ router.post('/add',async(req,res)=>{
 })
 router.get('/all',async (req,res)=>{
     try{
-        const listContacts=await Contact.find();
-        res.status(200).send({msg : 'contactlist',listContacts})
+        const ContactList=await Contact.find();
+        res.status(200).send({msg : 'contactlist',ContactList})
     }catch (error){
         res.status(400).send({msg : 'can not get contactlist'})
     }
@@ -55,7 +55,7 @@ router.put('/:_id',async(req,res)=>{
     try{
         const {_id}=req.params;
         const updateContact = await Contact.updateOne({_id},{$set:{ ...req.body}})
-        res.status(200).send({msg: 'contact ipdated'})
+        res.status(200).send({msg: 'contact updated'})
     }
     catch {error}{
         res.status(400).send({msg:'can not update this contact'})

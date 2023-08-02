@@ -10,6 +10,8 @@ import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { current } from './Js/Actions/user';
 import Login from './Pages/Login/Login';
+import Register from './Pages/Register/Register';
+import Profile from './Pages/Profile/Profile';
 function App() {
   const dispatch = useDispatch();
   useEffect(() => {
@@ -27,6 +29,8 @@ function App() {
           <Route path='/edit/:id' element = {<Edit/>} />
           <Route path='/login' element={<Login/>} />
           <Route path="/add" element = {<Add/>}/>
+          <Route path='/Register' element = {<Register/>} />
+          <Route path='/Profile' element = {<Profile/>} />
           
           </Routes> 
     </div>

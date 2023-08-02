@@ -13,10 +13,8 @@ const contactSchema = new schema ({
         unique : true
     } ,
     phone : Number
-    ,
-  profile_img: String,
-  cloudinary_id: String
-},
-{timestamps : true})
+    
+})
+
 
 module.exports = Contact = mongoose.model("contact" , contactSchema)

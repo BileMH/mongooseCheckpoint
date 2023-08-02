@@ -1,6 +1,6 @@
 import { FAIL_CONTACTS, GET_CONTACT, GET_CONTACTS, LOAD_CONTACTS } from "../Actiontypes/contact";
 
-const initiaState={
+const initialState={
     listContacts:[],
     errors:null,
     load:false,
@@ -8,7 +8,7 @@ const initiaState={
 };
 
 //pure functions
-const contactReducer=(state=initiaState,{type,payload})=>{
+const contactReducer=(state=initialState,{type,payload})=>{
 switch(type){
     case LOAD_CONTACTS:
         return{...state,load:true};
@@ -25,4 +25,4 @@ switch(type){
             return state;      
 }
 };
-export default contactReducer;
+export default contactReducer;

@@ -1,35 +1,33 @@
-import React, { useEffect } from 'react'
-import { useDispatch, useSelector} from 'react-redux'
-import ContactCard from '../ContactCard/ContactCard'
-import './ContactList.css'
-import  Spinner  from 'react-bootstrap/Spinner';
-import {Helmet} from "react-helmet";
+import React, { useEffect } from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
+import { Helmet } from 'react-helmet';
+import { Spinner } from 'react-bootstrap';
+import ContactCard from '../ContactCard/ContactCard';
 import { getContacts } from '../../Js/Actions/contact';
 
 const ContactList = () => {
-  const dispatch =useDispatch()
-  const ListContacts = useSelector (state => state.contactReducer.ListContacts)
-  const load = useSelector(state => state.contactReducer.load)
-  useEffect(() =>{
-    dispatch(getContacts())
-  },[dispatch])
+  const dispatch = useDispatch();
+  const listContacts = useSelector(state => state.contactReducer.listContacts);
+  const load = useSelector(state => state.contactReducer.load);
+
+  useEffect(() => {
+    dispatch(getContacts());
+  }, [dispatch]);
+
   return (
     <div>
       <Helmet>
-        <meta charSet="utf-8" />
-        <title>ContactList</title>
-        <link rel="canonical" />
+        <meta charSet='utf_8' />
+        <title>contactlist</title>
+        <link rel='canonical' />
       </Helmet>
-      <h1>ContactList</h1>
+      <h1>CONTACT LIST</h1>
       <div className='userlist'>
-        {load ? (
-          <Spinner animation="border" />
-        ) : (
-          ListContacts && ListContacts.map((el) => <ContactCard Contact={el} key={el._id} />)
-        )}
+        {load ? <Spinner animation='border' /> : listContacts.map((el) => <ContactCard Contact={el} key={el._id} />)}
       </div>
     </div>
   );
-}
+};
 
-export default ContactList
+export default ContactList;
